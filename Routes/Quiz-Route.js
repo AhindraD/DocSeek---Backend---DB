@@ -1,5 +1,5 @@
 const express = require('express');
-const UserModel = require('../Models/User-Schema');
+const UserModel = require('../Models/Doctor-Schema');
 const QuizModel = require('../Models/Quiz-Schema');
 const OptionModel = require('../Models/Option-Schema');
 const SubjectModel = require('../Models/Subject-Schema');
