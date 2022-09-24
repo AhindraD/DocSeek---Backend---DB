@@ -21,6 +21,9 @@ mongoose.connect(DB_URL, DB_Options)
 
 //ALL ROUTES import
 const authRouter = require("./Routes/Auth-Route");
+const doctorRouter = require("./Routes/Doctor-Route");
+const patientRouter = require("./Routes/Patient-Route");
+const appointmentRouter = require("./Routes/Appointment-Route");
 
 const app = express();
 //MIddleWares
@@ -42,7 +45,9 @@ app.use(morgan("dev", { stream }));
 //Routes related USAGE
 app.use("/auth", authRouter);
 //custom Auth middleware for data protection
-
+app.use("/doctor", authenticateRequest,doctorRouter);
+app.use("/patient", authenticateRequest,patientRouter);
+app.use("/appoint", authenticateRequest,appointmentRouter);
 
 const httpServer = app.listen(process.env.PORT || 8000, () => {
     const port = httpServer.address().port;
