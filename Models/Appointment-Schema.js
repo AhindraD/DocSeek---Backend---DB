@@ -29,6 +29,16 @@ const APPOINTMENT_SCHEMA = mongoose.Schema({
         type: Number,
         required: true,
     },
+    completed: {
+        type: Boolean,
+        default: false,
+    },
+    rating: {
+        type: Number,
+    },
+    review: {
+        type: String,
+    },
     createdAt: {
         type: Date,
         default: Date.now,

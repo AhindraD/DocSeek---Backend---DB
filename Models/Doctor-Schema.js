@@ -26,10 +26,10 @@ const DOCTOR_SCHEMA = mongoose.Schema({
     days: [{
         type: String,
     }],
-    education: {
+    qualification: {
         type: String,
     },
-    specialty: {
+    speciality: {
         type: String,
     },
     experience: {
