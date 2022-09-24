@@ -32,6 +32,9 @@ const DOCTOR_SCHEMA = mongoose.Schema({
     speciality: {
         type: String,
     },
+    hospital: {
+        type: String,
+    },
     experience: {
         type: Number,
     },
