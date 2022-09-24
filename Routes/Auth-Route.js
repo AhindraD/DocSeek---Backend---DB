@@ -16,7 +16,7 @@ router.post("/doctor/signup", async (request, response) => {
     if (password !== confirmPassword) {
         return response.status(400).json({ error: "Password & ConfirmPassword is not same!" });
     }
-    const existingUser = await UserModel.findOne({ email: email });
+    const existingUser = await DoctorModel.findOne({ email: email });
     if (existingUser != null) {
         return response.status(409).json({ error: "Email already exists!" });
     }
@@ -58,7 +58,7 @@ router.post("/patient/signup", async (request, response) => {
     if (password !== confirmPassword) {
         return response.status(400).json({ error: "Password & ConfirmPassword is not same!" });
     }
-    const existingUser = await UserModel.findOne({ email: email });
+    const existingUser = await PatientModel.findOne({ email: email });
     if (existingUser != null) {
         return response.status(409).json({ error: "Email already exists!" });
     }
