@@ -19,19 +19,19 @@ const APPOINTMENT_SCHEMA = mongoose.Schema({
         type: String,
         required: true,
     },
-    problem: {
+    prenote: {//by patient
         type: String,
     },
-    presciption: {
+    presciption: {//by doctor
         type: String,
     },
     cost: {
         type: Number,
         required: true,
     },
-    completed: {
-        type: Boolean,
-        default: false,
+    status: {
+        type: String,
+        default: "upcoming",//"completed","cancelled"
     },
     rating: {
         type: Number,
