@@ -24,7 +24,7 @@ const upload = multer({ storage: storage });
 
 //ONBOARD-PAT
 router.post('/onboard', upload.single('image'), async (request, response) => {
-    const { email, age, gender, qualification, speciality, hospital, experience, fee, city, country } = request.body;
+    const { email, age, gender, conditions, lookingfor, city, country } = request.body;
     let uploadedFile = request.file;
     if (uploadedFile != undefined) {
         uploadedFile = uploadedFile.filename;
@@ -33,28 +33,25 @@ router.post('/onboard', upload.single('image'), async (request, response) => {
     let imageUrl = process.env.BASE_URL + uploadedFile;
     //console.log(process.env.BASE_URL);
     //console.log(imageUrl);
-    if (!time || !days || !qualification || !speciality || !experience || !fee || !hospital || !city || !country) {
+    if (!age || !gender || !conditions || !lookingfor || !city || !country) {
         return response.status(400).json({ error: 'Input required!' });
     }
     try {
-        await DoctorModel.updateOne({ email: email }, {
-            "time": time,
-            "days": days,
-            "qualification": qualification,
-            "speciality": speciality,
-            "hospital": hospital,
-            "experience": experience,
-            "fee": fee,
+        await PatientModel.updateOne({ email: email }, {
+            "age": age,
+            "gender": gender,
+            "conditions": conditions,
+            "lookingfor": lookingfor,
             "city": city,
             "country": country,
             "imageUrl": imageUrl,
             "onboarded": true,
-            "rating": 5,
             "appointments": [],
-            "patients": [],
+            "doctors": [],
+            "reviews": [],
         });
-        const DOC = await DoctorModel.find({ email: email })
-        return response.status(201).json(DOC);
+        const PAT = await PatientModel.find({ email: email })
+        return response.status(201).json(PAT);
     } catch (e) {
         return response.status(501).json({ error: e.message })
     }

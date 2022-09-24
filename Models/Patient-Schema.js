@@ -43,6 +43,9 @@ const PATIENT_SCHEMA = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Doctor",
     }],
+    reviews: [{
+        type: String,
+    }],
     createdAt: {
         type: Date,
         default: Date.now,

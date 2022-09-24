@@ -52,6 +52,7 @@ router.post('/onboard', upload.single('image'), async (request, response) => {
             "rating": 5,
             "appointments": [],
             "patients": [],
+            "reviews": [],
         });
         const DOC = await DoctorModel.find({ email: email })
         return response.status(201).json(DOC);
@@ -73,8 +74,8 @@ router.get('/all', async (request, response) => {
 
 //SHOW DOC by city
 router.get('/city/:city', async (request, response) => {
-    const cityID=request.params.city;
-    const DOC = await DoctorModel.find({city:cityID})
+    const cityID = request.params.city;
+    const DOC = await DoctorModel.find({ city: cityID })
         .populate("appointments")
         .populate("patients", "name")
 
@@ -85,7 +86,7 @@ router.get('/city/:city', async (request, response) => {
 //SHOW DOC by speciality
 router.get('/speciality/:speciality', async (request, response) => {
     const specialityID = request.params.speciality;
-    const DOC = await DoctorModel.find({ speciality:specialityID})
+    const DOC = await DoctorModel.find({ speciality: specialityID })
         .populate("appointments")
         .populate("patients", "name")
 
@@ -95,8 +96,8 @@ router.get('/speciality/:speciality', async (request, response) => {
 
 //SHOW DOC by name
 router.get('/name/:name', async (request, response) => {
-    const nameID=request.params.name;
-    const DOC = await DoctorModel.find({name:nameID})
+    const nameID = request.params.name;
+    const DOC = await DoctorModel.find({ name: nameID })
         .populate("appointments")
         .populate("patients", "name")
 
