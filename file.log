@@ -9,3 +9,4 @@
 [0mPOST /doctor/onboard [31m501[0m 7.747 ms - 35[0m
 [0mPOST /doctor/onboard [32m201[0m 137.411 ms - 733[0m
 [0mGET /doctor/all [32m200[0m 67.993 ms - 733[0m
+[0mPOST /patient/onboard [32m201[0m 97.649 ms - 584[0m
