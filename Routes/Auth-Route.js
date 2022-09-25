@@ -42,7 +42,7 @@ router.post("/doctor/signup", async (request, response) => {
 
         const refreshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRATION_TIME });
 
-        return response.status(201).json({ saveDOC, accessToken, refreshToken });
+        return response.status(201).json({ saveUser: saveDOC, accessToken, refreshToken });
     } catch (error) {
         return response.status(501).send("ERROR: " + error.message);
     }
@@ -84,7 +84,7 @@ router.post("/patient/signup", async (request, response) => {
 
         const refreshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRATION_TIME });
 
-        return response.status(201).json({ savePAT, accessToken, refreshToken });
+        return response.status(201).json({ saveUser:savePAT, accessToken, refreshToken });
     } catch (error) {
         return response.status(501).send("ERROR: " + error.message);
     }
@@ -118,7 +118,7 @@ router.post("/doctor/login", async (request, response) => {
 
     const refreshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRATION_TIME });
 
-    return response.status(202).json({ accessToken, refreshToken, existingDOC })
+    return response.status(202).json({ accessToken, refreshToken, existingUser:existingDOC })
 });
 
 //LOG_IN-PATIENT
@@ -146,7 +146,7 @@ router.post("/patient/login", async (request, response) => {
 
     const refreshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRATION_TIME });
 
-    return response.status(202).json({ accessToken, refreshToken, existingPAT })
+    return response.status(202).json({ accessToken, refreshToken, existingUser:existingPAT })
 });
 
 
