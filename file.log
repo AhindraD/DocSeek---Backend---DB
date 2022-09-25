@@ -10,3 +10,17 @@
 [0mPOST /doctor/onboard [32m201[0m 137.411 ms - 733[0m
 [0mGET /doctor/all [32m200[0m 67.993 ms - 733[0m
 [0mPOST /patient/onboard [32m201[0m 97.649 ms - 584[0m
+[0mPOST /appoint/new [33m400[0m 82.620 ms - 34[0m
+[0mPOST /appoint/new [32m200[0m 257.338 ms - 66[0m
+[0mGET /patient/632f931f31c089350a524ac4 [33m404[0m 4.350 ms - 171[0m
+[0mGET /appoint/patient/632f931f31c089350a524ac4 [32m200[0m 89.231 ms - 310[0m
+[0mGET /appoint/doctor/632f92b97b29c625b94b26ae [32m200[0m 116.301 ms - 310[0m
+[0mPOST /appoint/complete/632f9fa14538431708ba6df1 [32m200[0m 52.855 ms - 69[0m
+[0mGET /appoint/patient/632f931f31c089350a524ac4 [32m200[0m 101.453 ms - 364[0m
+[0mGET /appoint/doctor/632f92b97b29c625b94b26ae [32m200[0m 101.198 ms - 364[0m
+[0mPOST /appoint/review/632f9fa14538431708ba6df1 [33m400[0m 105.281 ms - 66[0m
+[0mPOST /appoint/review/632f9fa14538431708ba6df1 [33m400[0m 129.874 ms - 66[0m
+[0mPOST /appoint/review/632f9fa14538431708ba6df1 [33m400[0m 123.964 ms - 66[0m
+[0mPOST /appoint/review/632f9fa14538431708ba6df1 [32m200[0m 244.567 ms - 68[0m
+[0mGET /appoint/patient/632f931f31c089350a524ac4 [32m200[0m 105.531 ms - 410[0m
+[0mGET /doctor/all [32m200[0m 100.638 ms - 1105[0m

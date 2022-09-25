@@ -32,9 +32,8 @@ router.post("/new", async (request, response) => {
             patient,
             date,
             time,
-            problem,
+            prenote,
             cost,
-            prenote
         });
 
         if (!foundDuplicate) {
@@ -75,7 +74,7 @@ router.get("/patient/:id", async (request, response) => {
 
 
 // get all doctor Appointment 
-router.get("/doctor/:id", async (req, res) => {
+router.get("/doctor/:id", async (request, response) => {
     const doctorID = request.params.id;
     try {
         let appointments = await AppointmentModel.find({ doctor: doctorID })
@@ -114,10 +113,12 @@ router.post("/review/:id", async (request, response) => {
             "review": review,
             "status": "completed",
         });
-        let currAppoint = await AppointmentModel.find({ _id: appointID }, { doctor: true, rating: true, reviews: true });
-        let currDoc = await currAppoint[0].doctor;
-        let currRating = await currAppoint[0].rating;
-        let currReview = await currAppoint[0].reviews;
+        let currAppoint = await AppointmentModel.find({ _id: appointID }, { doctor: true});
+        let currDocID = await currAppoint[0].doctor;
+        let currDoc=await DoctorModel.find({_id:currDocID},{rating:true,reviews:true});
+        let currRating = await currDoc[0].rating;
+        let currReview = await currDoc[0].reviews;
+        //console.log(currDoc[0]);
         await DoctorModel.updateOne({ _id: currDoc }, {
             "rating": ((rating + (currRating * currReview.length)) / (currReview.length + 1)).toFixed(2),
             $push: {
@@ -134,7 +135,7 @@ router.post("/review/:id", async (request, response) => {
 
 
 //Cancel an Appointment
-router.delete("/cancel/:id", async (request, response) => {
+router.post("/cancel/:id", async (request, response) => {
     const appointID = request.params.id;
     try {
         await AppointmentModel.updateOne({ _id: appointID }, {
