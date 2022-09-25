@@ -77,7 +77,7 @@ router.post("/patient/signup", async (request, response) => {
     try {//Adding new user to Database
         const savePAT = await newPAT.save();
         const payload = {
-            id: saveUser.id,
+            id: savePAT.id,
             email,
         }
         const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRATION_TIME });

@@ -17,6 +17,9 @@ const PATIENT_SCHEMA = mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    imageURL: {
+        type: String,
+    },
     age: {
         type: Number,
     },

@@ -1,0 +1,11 @@
+[0mPOST /auth/doctor/signup [32m201[0m 191.700 ms - 750[0m
+[0mPOST /auth/patient/signup [31m501[0m 164.242 ms - 30[0m
+[0mPOST /auth/patient/signup [33m409[0m 51.894 ms - 33[0m
+[0mPOST /auth/patient/signup [32m201[0m 197.388 ms - 758[0m
+[0mPOST /auth/doctor/login [32m202[0m 162.348 ms - 754[0m
+[0mPOST /auth/patient/login [32m202[0m 149.990 ms - 762[0m
+[0mPOST /doctor/onboard [32m201[0m 99.661 ms - 561[0m
+[0mPOST /doctor/onboard [32m201[0m 118.643 ms - 561[0m
+[0mPOST /doctor/onboard [31m501[0m 7.747 ms - 35[0m
+[0mPOST /doctor/onboard [32m201[0m 137.411 ms - 733[0m
+[0mGET /doctor/all [32m200[0m 67.993 ms - 733[0m
