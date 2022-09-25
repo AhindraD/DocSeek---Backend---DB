@@ -1,5 +1,5 @@
 # DocSeek---Backend
-## Fetch URL: 
+## Fetch URL: https://docseek-db.up.railway.app/
 
 ### Postman Collection JSON (API testing purpose) : https://github.com/AhindraD/DocSeek---Backend---MongoDB/blob/master/DocSeek.postman_collection.json
 
