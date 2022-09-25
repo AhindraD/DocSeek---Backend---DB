@@ -1,38 +1,50 @@
 # DocSeek---Backend
 ## Fetch URL: 
+
 ### Postman Collection JSON (API testing purpose) : https://github.com/AhindraD/DocSeek---Backend---MongoDB/blob/master/DocSeek.postman_collection.json
+
 ### Postman Screen-Shots : 
+![all requests](https://github.com/AhindraD/DocSeek---Backend---MongoDB/blob/master/snaps/postman-snap.PNG?raw=true)
 <br>
 
 # Endpoints
 
-These are minimum endpoints needed, feel free to be more creative and add more endpoints if it improves the flow.
 - Auth
-  - `POST /auth/signup`  
-  - `POST /auth/login`
+  - `POST /auth/doctor/signup`  
+  - `POST /auth/doctor/login`  
+  - `POST /auth/patient/signup`
+  - `POST /auth/patient/login`
   - `POST /auth/token`
   
-- Quiz
-  - `POST /quiz/add`: 
+- APPOINTMENT
+  - `POST /appoint/new`: 
   
-  - `POST /quiz/edit/:quizID`: 
+  - `POST /appoint/complete/:appointID`: 
+
+  - `POST /appoint/review/:appointID`: 
+
+  - `POST /appoint/cancel/:appointID`: 
   
-  - `GET /quiz/all`: 
+  - `GET /appoint/patient/:patientID`: 
+
+  - `GET /appoint/doctor/:doctorID`: 
   
-  - `GET /quiz/:quizID`: 
-  
-  - `DELETE /quiz/delete/:quizID
-  
-- Subject
-  - `POST /subject/add`: 
-  - `GET /subject/all`: 
-  - `GET /subject/:subID`: 
-  - `DELETE /subject/delete/:subID
+
+- DOCTOR
+  - `POST /doctor/onboard`: 
+
+  - `GET /doctor/all`: 
+  - `GET /doctor/name/:name`: 
+  - `GET /doctor/city/:city`: 
+  - `GET /doctor/speciality/:speciality`: 
+
+- PATIENT
+  - `POST /patient/onboard`: 
 
   <br>
   <br>
   <br>
-![all requests]()
+
 ## Tech Stack and Notes
 - React
 - ExpressJS
