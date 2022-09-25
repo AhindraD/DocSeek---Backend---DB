@@ -1,6 +1,6 @@
 # DocSeek---Backend
 ## Fetch URL: 
-### Postman Collection JSON (API testing purpose) : 
+### Postman Collection JSON (API testing purpose) : https://github.com/AhindraD/DocSeek---Backend---MongoDB/blob/master/DocSeek.postman_collection.json
 ### Postman Screen-Shots : 
 <br>
 
