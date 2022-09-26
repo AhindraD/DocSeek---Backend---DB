@@ -25,7 +25,7 @@ const upload = multer({ storage: storage });
 //ONBOARD-PAT
 router.post('/onboard', upload.single('image'), async (request, response) => {
     const { email, age, gender, conditions, lookingfor, city, country } = request.body;
-    let imageUrl = "https://images.unsplash.com/photo-1590611936760-eeb9bc598548?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&image.png=1170&q=80";//generic image
+    let imageUrl = "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80";//generic image
     let uploadedFile = request.file;
     if (uploadedFile != undefined) {
         uploadedFile = uploadedFile.filename;
