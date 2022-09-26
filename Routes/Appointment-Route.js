@@ -64,8 +64,8 @@ router.get("/patient/:id", async (request, response) => {
     const patientID = request.params.id;
     try {
         let appointments = await AppointmentModel.find({ patient: patientID })
-            .populate("doctor", "name")
-            .populate("patient", "name");
+            .populate("doctor", "name imageURL")
+            .populate("patient", "name  imageURL");
         return response.status(200).json(appointments)
     } catch (error) {
         return response.status(400).json({ error: error.message })
@@ -78,8 +78,8 @@ router.get("/doctor/:id", async (request, response) => {
     const doctorID = request.params.id;
     try {
         let appointments = await AppointmentModel.find({ doctor: doctorID })
-            .populate("doctor", "name")
-            .populate("patient", "name");
+            .populate("doctor", "name imageURL")
+            .populate("patient", "name  imageURL");
         return response.status(200).json(appointments)
     } catch (error) {
         return response.status(400).json({ error: error.message })
