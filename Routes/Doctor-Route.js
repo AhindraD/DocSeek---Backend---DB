@@ -34,8 +34,8 @@ router.post('/onboard', upload.single('image'), async (request, response) => {
     }
     //console.log(process.env.BASE_URL);
     //console.log(request.body);
-    let daysArr=JSON.parse(days);
-    let timeArr=JSON.parse(time);
+    let daysArr = JSON.parse(days);
+    let timeArr = JSON.parse(time);
     //console.log(daysArr);
     //console.log(timeArr);
     if (!time || !days || !qualification || !speciality || !experience || !fee || !hospital || !city || !country) {
@@ -70,6 +70,17 @@ router.post('/onboard', upload.single('image'), async (request, response) => {
 //SHOW all DOC
 router.get('/all', async (request, response) => {
     const DOC = await DoctorModel.find({})
+        .populate("appointments")
+        .populate("patients", "name")
+
+    response.status(200).json(DOC);
+});
+
+
+//SHOW a DOC
+router.get('/:id', async (request, response) => {
+    const docID = request.params.id;
+    const DOC = await DoctorModel.find({_id:docID})
         .populate("appointments")
         .populate("patients", "name")
 

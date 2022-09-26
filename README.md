@@ -34,6 +34,7 @@
   - `POST /doctor/onboard`: 
 
   - `GET /doctor/all`: 
+  - `GET /doctor/:docID`: 
   - `GET /doctor/name/:name`: 
   - `GET /doctor/city/:city`: 
   - `GET /doctor/speciality/:speciality`: 
