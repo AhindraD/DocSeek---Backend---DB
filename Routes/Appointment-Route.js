@@ -11,8 +11,10 @@ const router = express.Router();
 //create a new Appointment 
 router.post("/new", async (request, response) => {
     const { doctor, patient, date, time, prenote } = request.body;
+    console.log(request.body)
     try {
         //check if patient has any other Appointment at the same date & time
+
         const existingAppointments = await PatientModel.find({ _id: patient }, { appointments: true });
         let foundDuplicate = false;
         for (let i = 0; i < existingAppointments[0].appointments.length; i++) {
@@ -22,6 +24,7 @@ router.post("/new", async (request, response) => {
                 break;
             }
         }
+
 
         //get doctor fee
         const doctorFee = await DoctorModel.find({ _id: doctor }, { fee: true });
@@ -113,9 +116,9 @@ router.post("/review/:id", async (request, response) => {
             "review": review,
             "status": "completed",
         });
-        let currAppoint = await AppointmentModel.find({ _id: appointID }, { doctor: true});
+        let currAppoint = await AppointmentModel.find({ _id: appointID }, { doctor: true });
         let currDocID = await currAppoint[0].doctor;
-        let currDoc=await DoctorModel.find({_id:currDocID},{rating:true,reviews:true});
+        let currDoc = await DoctorModel.find({ _id: currDocID }, { rating: true, reviews: true });
         let currRating = await currDoc[0].rating;
         let currReview = await currDoc[0].reviews;
         //console.log(currDoc[0]);
