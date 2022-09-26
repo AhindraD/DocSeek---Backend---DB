@@ -33,14 +33,18 @@ router.post('/onboard', upload.single('image'), async (request, response) => {
         imageUrl = process.env.BASE_URL + uploadedFile;
     }
     //console.log(process.env.BASE_URL);
-    //console.log(imageUrl);
+    //console.log(request.body);
+    let daysArr=JSON.parse(days);
+    let timeArr=JSON.parse(time);
+    //console.log(daysArr);
+    //console.log(timeArr);
     if (!time || !days || !qualification || !speciality || !experience || !fee || !hospital || !city || !country) {
         return response.status(400).json({ error: 'Input required!' });
     }
     try {
         await DoctorModel.updateOne({ email: email }, {
-            "time": time,
-            "days": days,
+            "time": timeArr,
+            "days": daysArr,
             "qualification": qualification,
             "speciality": speciality,
             "hospital": hospital,

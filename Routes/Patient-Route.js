@@ -34,6 +34,11 @@ router.post('/onboard', upload.single('image'), async (request, response) => {
     }
     //console.log(process.env.BASE_URL);
     //console.log(imageUrl);
+    //console.log(request.body);
+    let conditionsArr = JSON.parse(conditions);
+    let lookingforArr = JSON.parse(lookingfor);
+    //console.log(conditionsArr);
+    //console.log(lookingforArr);
     if (!age || !gender || !conditions || !lookingfor || !city || !country) {
         return response.status(400).json({ error: 'Input required!' });
     }
@@ -41,8 +46,8 @@ router.post('/onboard', upload.single('image'), async (request, response) => {
         await PatientModel.updateOne({ email: email }, {
             "age": age,
             "gender": gender,
-            "conditions": conditions,
-            "lookingfor": lookingfor,
+            "conditions": conditionsArr,
+            "lookingfor": lookingforArr,
             "city": city,
             "country": country,
             "imageURL": imageUrl,
