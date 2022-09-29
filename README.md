@@ -49,5 +49,5 @@
 ## Tech Stack and Notes
 - React
 - ExpressJS
-- PostgreSql
+- MongoDB
 - Postman for API testing.
